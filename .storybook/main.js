@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -7,5 +9,24 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
-  "framework": "@storybook/vue3"
+  // webpackFinal: async (config) => {
+  //   config.module.rules.push({
+  //     test: /\.css$/,
+  //     use: [
+  //       {
+  //         loader: 'postcss-loader',
+  //         options: {
+  //           ident: 'postcss',
+  //           plugins: [
+  //             require('tailwindcss'),
+  //             require('autoprefixer'),
+  //           ],
+  //         },
+  //       },
+  //     ],
+  //     include: path.resolve(__dirname, '../'),
+  //   })
+  //   return config
+  // },
+  "framework": "@storybook/vue3",
 }

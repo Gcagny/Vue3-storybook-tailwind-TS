@@ -1,5 +1,9 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+  <div class="flex flex-col-reverse">
+      <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+      <button type="button" :class="classes" @click="onClick" :style="style">{{ label }}</button>
+
+  </div>
 </template>
 
 <script setup lang="ts">

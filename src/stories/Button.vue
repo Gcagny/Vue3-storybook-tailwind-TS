@@ -16,7 +16,7 @@
     icon?: string,
     disabled?: boolean
   }
-  // Défintion des Events & Props
+  // Définition des Events & Props
   const props = defineProps<Props>();
   const emit = defineEmits({
     click: () => true,
@@ -43,6 +43,7 @@
     'ariane-button': true,
     'ariane-button-disabled': props.disabled,
   }));
+
   // Génération de l'Event
   function onClick () {
     if (props.disabled) emit('click-disabled');
@@ -50,70 +51,70 @@
   }
 </script>
 
-<style>
+<style scoped>
   /* Classes Partagées */
-  .ariane-button {
+  button.ariane-button {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 30px;
     gap: 10px;
-    font-size: 13px;
   }
-  .ariane-button:hover {
+  button.ariane-button:hover {
     opacity: 0.5;
   }
-  .ariane-button-disabled {
+  button.ariane-button-disabled {
     cursor: default;
   }
-  .ariane-button-disabled:hover {
+  button.ariane-button-disabled:hover {
     opacity: 1 !important;
   }
-  .ariane-button-no-text {
+  button.ariane-button-bordered {
     height: 31px;
     border-radius: 3px;
-    border: 1px solid aquamarine
+    border: 1px solid;
+    @apply border-main-primary
   }
   .filled, .outlined  {
-    @apply ariane-button-no-text;
+    @apply ariane-button-bordered;
   }
   /* Filled */
-  .filled {
-    background-color: aquamarine;
-    color: white;
+  button.filled {
+    color: #fff;
+    @apply bg-main-primary border-main-primary;
   }
-  .filled.ariane-button-disabled {
-    background-color: #EBEBEB;
-    border-color: #EBEBEB;
+  button.filled.ariane-button-disabled {
+    @apply bg-main-text-disabled border-main-text-disabled;
   }
   /* Outlined */
-  .outlined {
-    background-color: white;
-    color: aquamarine;
-    border: 1px solid aquamarine
+  button.outlined {
+    background-color: #FFF;
+    @apply border-main-primary text-main-primary;
   }
-  .outlined.ariane-button-disabled {
-    color: #EBEBEB;
-    border-color: #EBEBEB;
+  button.outlined.ariane-button-disabled {
+    @apply text-main-text-disabled border-main-text-disabled;
   }
   /* Text */
-  .text {
-    color: aquamarine
+  button.text {
+    @apply text-main-primary;
   }
-  .text.ariane-button-disabled {
-    color: #EBEBEB
+  button.text.ariane-button-disabled {
+    @apply text-main-text-disabled;
   }
   /* Size */
-  .small {
+  button.small {
     width: 100px;
+    @apply text-sm;
   }
-  .medium {
+  button.medium {
     width: 150px;
+    @apply text-base;
   }
-  .large {
+  button.large {
     width: 200px;
+    @apply text-lg;
   }
-  .no-label {
+  button.no-label {
     padding: 8px;
   }
 </style>

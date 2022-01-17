@@ -1,52 +1,101 @@
 import MyButton from './Button.vue';
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: 'Ariane/Button',
   component: MyButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+    label: {
+      type: { name: 'string', required: true },
+      description: 'Intitulé du bouton',
+      control: { type: 'text' }
     },
+    outlined: {
+      type: { name: 'boolean' },
+      description: 'Passe le bouton en type "Outlined"',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: false } },
+    },
+    text: {
+      type: { name: 'boolean' },
+      description: 'Passe le bouton en type "Text"',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: false } },
+    },
+    small: {
+      type: { name: 'boolean' },
+      description: 'Passe la taille maximal du bouton au minimum',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: false } },
+    },
+    large: {
+      type: { name: 'boolean' },
+      description: 'Passe la taille maximal du bouton au maximum',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: false } },
+    },
+    icon: {
+      type: { name: 'string', required: false },
+      description: 'Icone',
+      table: { type: { summary: 'font-awsome string' }, defaultValue: { summary: '' } },
+      control: { type: 'text' }
+    },
+    disabled: {
+      type: { name: 'boolean' },
+      description: 'Passe le bouton en désactivé. IL n\'emittera plus @click mais @click-disabled',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: false } },
+    },
+    click: { action: 'click' },
+    'click-disabled': { action: 'click-disabled' }
   },
 };
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
   components: { MyButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
   template: '<my-button v-bind="args" />',
 });
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: 'Button',
+export const Filled = Template.bind({});
+Filled.args = {
+  label: 'Filled',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
+export const Outlined = Template.bind({});
+Outlined.args = {
+  label: 'Outlined',
+  outlined: true
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const Text = Template.bind({});
+Text.args = {
+  label: 'Text',
+  text: true
+};
+
+export const withIcon = Template.bind({});
+withIcon.args = {
+  label: 'With Icon',
+  icon: 'fa-plus'
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: 'small',
-  label: 'Button',
+  label: 'Small',
+  small: true
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  label: 'Medium',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  label: 'Large',
+  large: true
+};
+
+export const IconOnly = Template.bind({});
+IconOnly.args = {
+  label: '',
+  icon: 'fa-plus'
 };

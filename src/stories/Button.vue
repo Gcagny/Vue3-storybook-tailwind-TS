@@ -42,6 +42,7 @@
   const classes = computed (() => ({
     'ariane-button': true,
     'ariane-button-disabled': props.disabled,
+    'ariane-button-icon': props.icon && props.icon.length > 0
   }));
 
   // Génération de l'Event
@@ -57,7 +58,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 30px;
     gap: 10px;
   }
   button.ariane-button:hover {
@@ -105,14 +105,26 @@
   button.small {
     width: 100px;
     @apply text-sm;
+    padding: 8px 0px;
+  }
+  button.small.ariane-button-icon {
+    @apply text-xs;
   }
   button.medium {
     width: 150px;
     @apply text-base;
+    padding: 8px 15px;
+  }
+  button.medium.ariane-button-icon {
+    @apply text-sm;
   }
   button.large {
     width: 200px;
+    padding: 8px 25px;
     @apply text-lg;
+  }
+  button.large.ariane-button-icon {
+    @apply text-base;
   }
   @media (max-width: 768px) {
     button.small {

@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="[classes, buttonType, buttonSize]" @click="onClick()">
+  <button v-ripple type="button" :class="[classes, buttonType, buttonSize]" @click="onClick()">
     <i :class="'fas ' + icon" v-if="icon && icon.length > 0" />
     <span v-if="label">{{ label }}</span>
   </button>
@@ -51,7 +51,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   /* Classes Partagées */
   button.ariane-button {
     display: flex;
@@ -114,7 +114,43 @@
     width: 200px;
     @apply text-lg;
   }
+  @media (max-width: 768px) {
+    button.small {
+      width: 80px;
+      @apply text-xs
+    }
+    button.medium {
+      width: 120px;
+      @apply text-sm;
+    }
+    button.large {
+      width: 170px;
+      @apply text-base;
+    }
+    
+  }
   button.no-label {
     padding: 8px;
   }
+
+  /* ANIMATION */
+.ripple {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(0);
+  position: absolute;
+  opacity: 1;
+}
+.ripple-effect {
+    animation: ripple .4s linear;
+}
+
+@keyframes ripple {
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
 </style>

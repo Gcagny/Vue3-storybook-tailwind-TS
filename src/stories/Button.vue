@@ -88,7 +88,7 @@
   }
   /* Outlined */
   button.outlined {
-    background-color: #FFF;
+    background-color: transparent;
     @apply border-main-primary text-main-primary;
   }
   button.outlined.ariane-button-disabled {

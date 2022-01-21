@@ -10,10 +10,8 @@ const plugin = {
       }
     }
     for (const propDirective in directives) {
-      console.log(propDirective);
       if (directives.hasOwnProperty(propDirective)) {
         const directive = directives[propDirective]
-        console.log(directive);
         Vue.directive(propDirective, directive);
       }
     }

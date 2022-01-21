@@ -1,6 +1,6 @@
-import components from'./components/components';
-import directives from './directives.directives'
-
+import components from'./components/components.ts';
+import directives from './directives/directives.ts'
+// Here is the code called when you use App.use( ... )
 const plugin = {
   install (Vue) {
     for (const propComponent in components) {
@@ -14,7 +14,8 @@ const plugin = {
       if (directives.hasOwnProperty(propDirective)) {
         const directive = directives[propDirective]
         console.log(directive);
-        Vue.directive(propDirective, ripple);      }
+        Vue.directive(propDirective, directive);
+      }
     }
   }
 }

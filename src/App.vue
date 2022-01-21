@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import Button from './components/AriButton.vue'
 </script>
 
 <template>
   <div class="h-full w-full bg-main-text-secondary">
-      <Button outlined label="Button"/>
+      <AriButton v-ripple outlined label="Button"/>
   </div>
 </template>
 

@@ -23,11 +23,11 @@
     'click-disabled': () => true
   });
 
-  // On vérifie si le bouton possède des props valide
+  // We're checking if our props are valid
   if (!props.label && !props.icon) throw new Error('Buttons must have at least a Label or an Icon Props !');
   
 
-  // Génération des classes
+  // CSS generation
   const buttonType = computed(() => {
     if (props.outlined) return 'outlined';
     else if (props.text) return 'text';
@@ -45,7 +45,7 @@
     'ariane-button-icon': props.icon && props.icon.length > 0
   }));
 
-  // Génération de l'Event
+  // Event generations
   function onClick () {
     if (props.disabled) emit('click-disabled');
     else emit('click');

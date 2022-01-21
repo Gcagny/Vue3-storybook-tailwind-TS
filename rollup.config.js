@@ -1,7 +1,9 @@
 import vue from 'rollup-plugin-vue';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import typescript from 'rollup-plugin-typescript2';
-import css from "rollup-plugin-import-css";
+import postcss from 'rollup-plugin-postcss';
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 export default [
   {
@@ -17,7 +19,16 @@ export default [
       }
     ],
     plugins: [
-      vue(), peerDepsExternal(), typescript(), css()
+      vue({ css: false }),
+      peerDepsExternal(),
+      typescript(),
+      postcss({
+        extract: true,
+        plugins: [
+          autoprefixer(),
+          tailwind()
+        ]
+      }),
     ]
   }
 ]

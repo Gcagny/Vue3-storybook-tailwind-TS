@@ -1,2 +1,2 @@
-import AriButton from './components/Button.vue';
+import AriButton from './components/AriButton.vue';
 export default { AriButton }; 

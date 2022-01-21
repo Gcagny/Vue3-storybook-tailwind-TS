@@ -1,10 +1,10 @@
+<script lang="ts"> export default { name: 'AriButton' } </script>
 <template>
   <button v-ripple type="button" :class="[classes, buttonType, buttonSize]" @click="onClick()">
     <i :class="'fas ' + icon" v-if="icon && icon.length > 0" />
     <span v-if="label">{{ label }}</span>
   </button>
 </template>
-
 <script setup lang="ts">
   import { computed } from 'vue';
   interface Props {

@@ -28,6 +28,13 @@ Once your project is ready, export all the components you want to export in src/
 Generate your dist folder using `npm run rollup`.
 Then publish your repo on npm following this guide : [Publish your repo on npm](https://zellwk.com/blog/publish-to-npm/)
 
+## Use your new library in another project
+
+install your npm package in your new vue3 project.
+`import yourProject from 'yourProject';
+import "../node_modules/yourProject/dist/library.css"
+createApp(App).use(yourProject).mount('#app')`
+If it's a typescript project, don't forget to add the path of your modules in compilerOptions of your tsconfig.json
 ### Ressources used to build this boiledplate
  - https://tailwindcss.com/docs/configuration
  - https://storybook.js.org/docs/vue/get-started/introduction

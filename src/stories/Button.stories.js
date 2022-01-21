@@ -1,7 +1,7 @@
-import MyButton from '../components/Button.vue';
+import MyButton from '../components/AriButton.vue';
 
 export default {
-  title: 'Ariane/Button',
+  title: 'Ariane/AriButton',
   component: MyButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {

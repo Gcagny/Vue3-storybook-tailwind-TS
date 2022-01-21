@@ -1,10 +1,10 @@
+<script lang="ts"> export default { name: 'AriButton' } </script>
 <template>
-  <button v-ripple type="button" :class="[classes, buttonType, buttonSize]" @click="onClick()">
+  <button type="button" :class="[classes, buttonType, buttonSize]" @click="onClick()">
     <i :class="'fas ' + icon" v-if="icon && icon.length > 0" />
     <span v-if="label">{{ label }}</span>
   </button>
 </template>
-
 <script setup lang="ts">
   import { computed } from 'vue';
   interface Props {
@@ -23,11 +23,11 @@
     'click-disabled': () => true
   });
 
-  // On vérifie si le bouton possède des props valide
+  // We're checking if our props are valid
   if (!props.label && !props.icon) throw new Error('Buttons must have at least a Label or an Icon Props !');
   
 
-  // Génération des classes
+  // CSS generation
   const buttonType = computed(() => {
     if (props.outlined) return 'outlined';
     else if (props.text) return 'text';
@@ -45,7 +45,7 @@
     'ariane-button-icon': props.icon && props.icon.length > 0
   }));
 
-  // Génération de l'Event
+  // Event generations
   function onClick () {
     if (props.disabled) emit('click-disabled');
     else emit('click');
@@ -56,6 +56,7 @@
   /* Classes Partagées */
   button.ariane-button {
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     gap: 10px;

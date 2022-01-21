@@ -56,6 +56,7 @@
   /* Classes Partagées */
   button.ariane-button {
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     gap: 10px;

@@ -24,7 +24,8 @@ Once you have them, you can use this [tailwind guide](https://tailwindcss.com/do
 
 ## How to publish
 
-Once your project is ready, generate your dist fodler using `npm run rollup`.
+Once your project is ready, export all the components you want to export in src/components/components.ts. Same for the Directives in src/directives/directives.ts 
+Generate your dist folder using `npm run rollup`.
 Then publish your repo on npm following this guide : [Publish your repo on npm](https://zellwk.com/blog/publish-to-npm/)
 
 ### Ressources used to build this boiledplate
